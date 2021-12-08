@@ -1,0 +1,19 @@
+#!/bin/bash
+set -u; set -e
+
+# shellcheck source=/dev/null
+source "$(dirname "${BASH_SOURCE[0]}")/_a3"
+
+[[ $(git branch --show-current) = "main" ]] ||
+    die "= mkb: not on main branch."
+
+status=$(git status --porcelain)
+# -z = empty -> nothing pending
+[[ -z $status ]] ||
+    die "= mkb: pending changes."
+
+git co -b "$1"
+git add .
+git ci -am "initial"
+
+echo "= mkb: ok"

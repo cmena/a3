@@ -1,0 +1,17 @@
+#!/bin/bash
+set -u; set -e
+
+# shellcheck source=/dev/null
+source "$(dirname "${BASH_SOURCE[0]}")/_a3"
+
+hg_repo && {
+    hg diff --config diff.git=False
+    exit
+}
+
+git_repo && {
+    git diff
+    exit
+}
+
+die "= hiff: no repo here."

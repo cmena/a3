@@ -1,0 +1,16 @@
+#!/bin/bash
+set -u; set -e
+
+# shellcheck source=/dev/null
+source "$(dirname "${BASH_SOURCE[0]}")/_a3"
+
+hg_repo && {
+    die "= ciff: not applicable."
+}
+
+git_repo && {
+    git diff --cached
+    exit
+}
+
+die "= ciff: no repo here."

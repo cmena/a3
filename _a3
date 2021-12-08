@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function die {
+    echo "$@" >&2
+    exit 1
+}
+
+function git_repo {
+    git rev-parse --is-inside-work-tree > /dev/null 2>&1
+}
+
+function hg_repo {
+    hg id > /dev/null 2>&1
+}

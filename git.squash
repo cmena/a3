@@ -1,0 +1,18 @@
+#!/bin/bash
+set -u; set -e
+
+# shellcheck source=/dev/null
+source "$(dirname "${BASH_SOURCE[0]}")/_a3"
+
+[[ $(git branch --show-current) = "main" ]] ||
+    die "= git.squash: can only squash from main branch."
+
+status=$(git status --porcelain)
+# -z = empty -> nothing pending
+[[ -z $status ]] ||
+    die "= git.squash: there are pending changes."
+
+git merge --squash "$1"
+git branch -D "$1"
+
+echo "= git.squash: ok"

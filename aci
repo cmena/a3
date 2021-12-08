@@ -1,0 +1,19 @@
+#!/bin/bash
+set -u; set -e
+
+# shellcheck source=/dev/null
+source "$(dirname "${BASH_SOURCE[0]}")/_a3"
+
+hg_repo && {
+    hg addremove "$@"
+    hg ci "$@" -m ...
+    exit
+}
+
+git_repo && {
+    git add .
+    git ci -am ...
+    exit
+}
+
+echo "= aci: no repo here."

@@ -1,0 +1,20 @@
+#!/bin/bash
+set -u; set -e
+
+# shellcheck source=/dev/null
+source "$(dirname "${BASH_SOURCE[0]}")/_a3"
+
+[[ $(git branch --show-current) = "main" ]] &&
+    die "= git.smush: cannot smush on main branch."
+
+status=$(git status --porcelain)
+# -z = empty -> nothing pending
+[[ -z $status ]] ||
+    die "= git.smush: there are pending changes."
+
+git reset --soft main
+git add .
+git ci -am "%%"
+
+echo "= git.smush: ok"
+
