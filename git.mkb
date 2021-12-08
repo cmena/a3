@@ -13,7 +13,6 @@ status=$(git status --porcelain)
     die "= mkb: pending changes."
 
 git co -b "$1"
-git add .
 git ci -am "initial"
 
 echo "= mkb: ok"
