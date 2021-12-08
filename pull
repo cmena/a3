@@ -1,0 +1,18 @@
+#!/bin/bash
+set -u; set -e
+
+# shellcheck source=/dev/null
+source "$(dirname "${BASH_SOURCE[0]}")/_a3"
+
+hg_repo && {
+    hg pull
+    hg update
+    exit
+}
+
+git_repo && {
+    git pull
+    exit
+}
+
+echo "= $(basename "$0"): no repo here."
