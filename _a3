@@ -12,3 +12,8 @@ function git_repo {
 function hg_repo {
     hg id > /dev/null 2>&1
 }
+
+# fixme: maybe?
+function fossil_repo {
+    fossil status > /dev/null 2>&1
+}
