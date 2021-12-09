@@ -6,7 +6,7 @@ a3 (albañil) - a bash porcelain over dvcs: git, mercurial and fossil (wip).
 
 `add`: add files from .
 
-`ci`: commit (fast) snapshot (commit with message ...)
+`ci`: commit (fast) snapshot
 
 `clean!`: clean ignored files
 
