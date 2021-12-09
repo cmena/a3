@@ -30,7 +30,7 @@ a3 (albañil) - a bash porcelain over dvcs: git, mercurial and fossil (wip).
 
 `mkb`: make branch and switch to it
 
-`pull`: pull changes and update
+`pull`: fetch and update
 
 `purge!`: clean + dirs
 
