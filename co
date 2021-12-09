@@ -5,7 +5,8 @@ set -u; set -e
 source "$(dirname "${BASH_SOURCE[0]}")/_a3"
 
 hg_repo && {
-    die "= $(basename "$0"): not implemented."
+    hg update "$@"
+    exit
 }
 
 git_repo && {
