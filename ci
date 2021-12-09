@@ -14,4 +14,9 @@ git_repo && {
     exit
 }
 
+fossil_repo && {
+    fossil commit -m ...
+    exit
+}
+
 echo "= ci: no repo here."

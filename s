@@ -14,4 +14,9 @@ git_repo && {
     exit
 }
 
+fossil_repo && {
+    fossil changes
+    exit
+}
+
 echo "= status: no repo here."
