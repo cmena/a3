@@ -5,12 +5,12 @@ set -u; set -e
 source "$(dirname "${BASH_SOURCE[0]}")/_a3"
 
 hg_repo && {
-    hg clean
+    hg clean -v
     exit
 }
 
 git_repo && {
-    git clean -fd
+    git clean -f
     exit
 }
 
