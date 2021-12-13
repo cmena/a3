@@ -10,7 +10,7 @@ hg_repo && {
 }
 
 git_repo && {
-    git clean -f
+    git clean -d -f
     exit
 }
 
