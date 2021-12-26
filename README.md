@@ -36,7 +36,7 @@ a3 (albañil) - a bash porcelain over dvcs: git, mercurial and fossil (wip).
 
 `reflog`: ref log
 
-`revert!`: revert changes
+`rvt!`: revert changes
 
 `smush!`: collapse topic branch state back to main (trunk).
 
