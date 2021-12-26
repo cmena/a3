@@ -12,9 +12,13 @@ status=$(git status --porcelain)
 [[ -z $status ]] ||
     die "= git.smush: there are pending changes."
 
+# tag before smushing to make it easier to reflog back, and to prevent
+# accidental smushings (ie, have to manually git tag -d @smush)
+git tag @smush
+
 git reset --soft main
 git add .
-git ci -am "%%"
+git ci -am "= smushed ="
 
 echo "= git.smush: ok"
 
