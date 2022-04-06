@@ -12,7 +12,7 @@ hg_repo && {
 
 git_repo && {
     git add .
-    git ci -am ...
+    git commit -am ...
     exit
 }
 
