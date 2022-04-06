@@ -10,7 +10,7 @@ hg_repo && {
 }
 
 git_repo && {
-    git ci -a
+    git commit -a
     exit
 }
 
