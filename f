@@ -10,7 +10,7 @@ hg_repo && {
 }
 
 git_repo && {
-    git fetch
+    git fetch "$@"
     exit
 }
 
