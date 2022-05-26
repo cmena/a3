@@ -20,7 +20,7 @@ git tag @smush
 
 git reset --soft "$main"
 git add .
-git ci -am "= smushed ="
+git commit -am "= smushed ="
 
 echo "= git.smush: ok"
 
