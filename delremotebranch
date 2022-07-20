@@ -9,7 +9,7 @@ hg_repo && {
 }
 
 git_repo && {
-    git push "$1" --delete
+    git push "$1" --delete "$2"
     exit
 }
 
