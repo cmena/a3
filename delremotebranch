@@ -9,7 +9,7 @@ hg_repo && {
 }
 
 git_repo && {
-    git push origin --delete "$@"
+    git push "$1" --delete
     exit
 }
 
