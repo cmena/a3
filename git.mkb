@@ -12,6 +12,6 @@ status=$(git status --porcelain)
 [[ -z $status ]] ||
     die "= mkb: pending changes."
 
-git co -b "$1"
+git checkout -b "$1"
 
 echo "= mkb: ok"
