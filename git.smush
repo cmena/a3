@@ -1,11 +1,11 @@
 #!/bin/bash
-set -u; set -e
+set -e 
+set -u
 
 # shellcheck source=/dev/null
 source "$(dirname "${BASH_SOURCE[0]}")/_a3"
 
-[[ $(git branch --show-current) = "main" ]] &&
-    die "= git.smush: cannot smush on main branch."
+ref=${1:-origin/main}
 
 status=$(git status --porcelain)
 # -z = empty -> nothing pending
@@ -16,9 +16,9 @@ status=$(git status --porcelain)
 # accidental smushings (ie, have to manually git tag -d @smush)
 git tag @smush
 
-git reset --soft main
+git reset --soft "$ref"
 git add .
-git ci -am "= smushed ="
+git commit -am "= smushed ="
 
 echo "= git.smush: ok"
 
